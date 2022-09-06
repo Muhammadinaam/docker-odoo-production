@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="salt_production.water_pumps_list">
+      <field name="name">Water Pumps</field>
+      <field name="model">salt_production.water_pump</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="salt_production.water_containers_list">
+      <field name="name">Water Containers</field>
+      <field name="model">salt_production.water_container</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="salt_production.crystalizers_list">
+      <field name="name">Crystalizers</field>
+      <field name="model">salt_production.crystalizer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="salt_production.water_pumps_action_window">
+      <field name="name">Water Pumps</field>
+      <field name="res_model">salt_production.water_pump</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.water_containers_action_window">
+      <field name="name">Water Containers</field>
+      <field name="res_model">salt_production.water_container</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.crystalizers_action_window">
+      <field name="name">Crystalizers</field>
+      <field name="res_model">salt_production.crystalizer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="salt_production.action_server">
+      <field name="name">salt_production server</field>
+      <field name="model_id" ref="model_salt_production_salt_production"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <menuitem name="Salt Production" id="salt_production.menu_root"/>
+    
+    <!-- master data -->
+    <menuitem name="Master Data" 
+      parent="salt_production.menu_root"
+      id="salt_production.master_data" />
+    <menuitem name="Water Pumps" id="salt_production.water_pumps"
+      parent="salt_production.master_data"
+      action="salt_production.water_pumps_action_window" />
+    <menuitem name="Water Containers" id="salt_production.water_containers"
+      parent="salt_production.master_data"
+      action="salt_production.water_containers_action_window" />
+    <menuitem name="Crystalizers" id="salt_production.crystalizers"
+      parent="salt_production.master_data"
+      action="salt_production.crystalizers_action_window" />
+
+    <!-- production data -->
+    <!-- <menuitem name="Production Data" 
+      parent="salt_production.menu_root"
+      id="salt_production.production_data" />
+    <menuitem name="Water Pumps" id="salt_production.water_pumps"
+      parent="salt_production.production_data"
+      action="salt_production.water_pumps_action_window" /> -->
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="salt_production.menu_1" parent="salt_production.menu_root"/>
+    <menuitem name="Menu 2" id="salt_production.menu_2" parent="salt_production.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="salt_production.menu_1_list" parent="salt_production.menu_1"
+              action="salt_production.action_window"/>
+    <menuitem name="Server to list" id="salt_production" parent="salt_production.menu_2"
+              action="salt_production.action_server"/>
+-->
+  </data>
+</odoo>

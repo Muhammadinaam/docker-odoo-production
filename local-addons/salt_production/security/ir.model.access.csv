@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_salt_production_water_pump,access_salt_production_water_pump,model_salt_production_water_pump,,1,1,1,1
+access_salt_production_water_container,access_salt_production_water_container,model_salt_production_water_container,,1,1,1,1
+access_salt_production_crystalizer,access_salt_production_crystalizer,model_salt_production_crystalizer,,1,1,1,1
