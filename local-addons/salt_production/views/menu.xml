@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem id="menu_salt_production"
+            name="Salt Production"
+            web_icon="salt_production,static/description/icon.png"
+            sequence="0"
+    />
+
+    <!-- <menuitem id="menu_salt_production_root"
+              name="Salt Production"
+              sequence="0"
+              web_icon="salt_pr,static/description/icon.png"/> -->
+
+    <!-- <menuitem id="menu_Salt_Production_icon"
+              name="Configuration" parent="menu_salt_production"
+              sequence="100"
+              /> -->
+    
+    
+</odoo>

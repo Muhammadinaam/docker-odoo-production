@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- +++++++++++++ FORM VIEW ++++++++++++++++++++ -->
+
+    <record id="view_circuit_post_form" model="ir.ui.view">
+        <field name="name">circuit.post.form</field>
+        <field name="model">circuit.post</field>
+        <field name="arch" type="xml">
+            
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="weather_id"/>
+                                
+                            </group>
+                            <group>
+                          
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            
+            
+        </field>
+    </record>
+
+
+    <!-- ACTION FOR MODEL -->
+
+    <record id="action_circuit_post" model="ir.actions.act_window">
+        <field name="name">Circuit Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">circuit.post</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                Create Today Circuit Details.
+            </P>
+
+        </field>
+    </record>
+
+    
+      <menuitem id="menu_circuit"
+                name="Circuit Details"
+                parent="menu_weather_root"
+                action="action_circuit_post"
+                sequence="10"
+                />
+
+</odoo>
+

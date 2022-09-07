@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+   
+    
+
+        <record id="report_analysis" model="ir.actions.report">
+            <field name="name">Analysis Report</field>
+            <field name="model">salt_production.analysis</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">salt_production.report_analysis</field>
+            <field name="report_file">salt_production.report_analysis</field>
+            <field name="binding_model_id" ref="model_salt_production_analysis"/>
+        </record>
+
+        <template id="report_analysis">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                            <t t-foreach="docs" t-as="o">
+                                <div class="page">
+                                    <center>
+                                        <h4>
+                                            SAMA SALT LAB ANALYSIS REPORT
+                                        </h4>
+                                    </center>
+                                    <div class="oe_structure"/>
+
+                                    <div class="border:rounded-2 p-3" style="border:1px solid grey ">
+
+                                        
+
+
+
+                                        <div  class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                
+                                                    <tr width="50%">
+                                                        
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>Entry Date</strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>   :   </strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.time"/>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div  class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                
+                                                    <tr width="50%">
+                                                        
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>Sample Date</strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>   :   </strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.sampletime"/>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div  class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                
+                                                    <tr width="50%">
+                                                        
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>Test Perform Date</strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>   :   </strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.testperf"/>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div  class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                
+                                                    <tr width="50%">
+                                                        
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>Crystliser #</strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>   :   </strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.crystalizer_id"/>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    
+                                        <div  class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                
+                                                    <tr width="50%">
+                                                        
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>Salt Type</strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <strong>   :   </strong>
+                                                        </td>
+                                                        <td colspan="3" class="text-center">
+                                                            <span t-field="o.cat"/>
+                                                        </td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div> 
+
+
+                                    <br></br><br></br>
+
+
+                                    <div style="border:1px solid grey ">
+                                    <table class="table" >
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th scope="col">Test</th>
+                                                <th scope="col">Unit</th>
+                                                <th scope="col">Test Method</th>
+                                                <th scope="col">Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <div t-foreach="o.analysis_line_ids" t-as="line">
+                                                <tr>
+                                                    <th><span t-field="line.tests"/></th>
+                                                    <th><span t-field="line.unit"/></th>
+                                                    <th><span t-field="line.testmethod"/></th>
+                                                    <th><span t-field="line.scoretest"/></th>
+                                                    
+                                                </tr>
+                                            </div>
+                                            
+                                            </tbody>
+                                    </table>
+                                        </div>
+                                        
+                                    
+                                </div>
+                                
+                            </t>
+                        <br></br><br></br>
+                        <div class="row">
+
+                            <p class="">Prepared By:_______________ </p>   
+                        </div>
+                    </t> 
+                </t>
+
+            </t>
+        
+        </template>
+
+        
+    
+
+    
+
+
+</odoo> 

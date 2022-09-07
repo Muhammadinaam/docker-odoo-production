@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_testings_post_tree" model="ir.ui.view">
+        <field name="name">testings.post.tree</field>
+        <field name="model">salt_production.testings</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="testname" />
+                <field name="testmethod"/>
+             
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="view_testings_post_graph" model="ir.ui.view">
+        <field name="name">testings.post.graph</field>
+        <field name="model">salt_production.testings</field>
+        <field name="arch" type="xml">
+
+            <graph>
+
+                <field name="testname" />
+                <field name="testmethod"/>
+                
+
+            </graph>
+        </field>
+    </record> -->
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_testings_post_form" model="ir.ui.view">
+        <field name="name">testings.form</field>
+        <field name="model">salt_production.testings</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="testname" />
+                            
+                        </group>
+                        <group>
+                            <field name="testmethod"/>
+                           
+                         </group>
+
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.testings_action_window">
+        <field name="name">Analysis Tests and Methods</field>
+        <field name="res_model">salt_production.testings</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

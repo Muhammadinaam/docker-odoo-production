@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+
+    <record id="view_feed_evaporator_tree" model="ir.ui.view">
+        <field name="name">feedevaporator.tree</field>
+        <field name="model">feedevaporator</field>
+        <field name="arch" type="xml">
+            
+                <tree>
+                                <field name="time"/>
+                                <field name="water_container_id"/>
+                                <field name="no_nitrogen"/>
+                                <field name="no_tsp"/>
+                             
+
+
+                </tree>
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+    <!-- +++++++++++++ FORM VIEW ++++++++++++++++++++ -->
+
+    <record id="view_feed_evaporator_form" model="ir.ui.view">
+        <field name="name">feedevaporator.form</field>
+        <field name="model">feedevaporator</field>
+        <field name="arch" type="xml">
+            
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="time"/>
+                                <field name="water_container_id"/>
+                            
+
+                            </group>
+                            <group>
+
+                              <field name="no_nitrogen"/>
+                                <field name="no_tsp"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+           </field>
+    </record>
+
+
+    <!-- ACTION FOR MODEL -->
+
+    <record id="salt_production.action_feed_evaporator_post" model="ir.actions.act_window">
+        <field name="name">Feeding Evaporator</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">feedevaporator</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                Create Today Circuit Details.
+            </P>
+
+        </field>
+    </record>
+</odoo>
+

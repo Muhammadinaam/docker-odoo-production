@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    
+   <!-- TREE VIEW -->
+
+     <record id="salt_production_tree" model="ir.ui.view">
+        <field name="name">rawsalt.tree</field>
+        <field name="model">salt_production.washing</field>
+        <field name="arch" type="xml">
+            
+                <tree>
+                    
+                    <field name="time"/>
+                    <field name="crystalizer_id"/>
+                    <field name="cycle"/>
+                   
+                    <field name="trips"/>
+                    <!-- <field name="truckweight"/> -->
+                    <!-- <field name="raw"/> -->
+                    <field name="belt1"/>
+                    <!-- <field name="whicheverisless"/> -->
+
+                    <field name="waterload"/>
+                    <field name="waterloadloss"/>
+                    <field name="rawsalt"/>
+                    
+                    <field name="cat"/>
+                    <field name="grosswt"/>
+                    <field name="washingloss"/>
+                    
+                </tree>
+        </field>
+    </record>
+
+
+
+   <!-- FORM VIEW  -->
+
+
+
+
+
+  
+<record  id="salt_production.rawsalt_action_window" model="ir.actions.act_window">
+      <field name="name">Raw Salt Report</field>
+      <field name="res_model">salt_production.washing</field>
+      <field name="view_mode">tree</field>
+</record>
+
+</odoo>

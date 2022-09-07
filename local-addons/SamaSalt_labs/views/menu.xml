@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem id="menu_salt_lab"
+            name="Salt Lab"
+            web_icon="samasalt_labs,static/description/icon.png"
+            sequence="0"
+    />
+
+    <menuitem id="menu_weather_root"
+                name="Weather"
+                parent="menu_salt_lab"
+                sequence="0"
+                />
+    
+    <menuitem id="menu_weather_root1"
+                name="Weather another"
+                parent="menu_salt_lab"
+                sequence="0"
+                />
+    
+    
+</odoo>
+

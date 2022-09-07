@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+
+    <record id="view_circuit_post_tree" model="ir.ui.view">
+        <field name="name">circuit.post.tree</field>
+        <field name="model">circuit.post</field>
+        <field name="arch" type="xml">
+            
+                <tree>
+                                <field name="water_container_id"/>
+                                <field name="time"/>
+                                <field name="top"/>
+                                <field name="btm"/>
+                                <field name="height"/>
+                                <field name="h_woodenbarrier"/>
+                                <field name="brine_overflow"/>
+
+                            
+
+                                <field name="no_woodenbarrier"/>
+                                <field name="temp"/>
+                                <field name="density"/>
+                                <field name="ntu"/>
+                                <field name="remark"/>
+
+                </tree>
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+    <!-- +++++++++++++ FORM VIEW ++++++++++++++++++++ -->
+
+    <record id="view_circuit_post_form" model="ir.ui.view">
+        <field name="name">circuit.post.form</field>
+        <field name="model">circuit.post</field>
+        <field name="arch" type="xml">
+            
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="water_container_id"/>
+                                <field name="time"/>
+                                <field name="top"/>
+                                <field name="btm"/>
+                                <field name="height"/>
+                                <field name="h_woodenbarrier"/>
+                                <field name="brine_overflow"/>
+
+                            </group>
+                            <group>
+
+                                <field name="no_woodenbarrier"/>
+                                <field name="temp"/>
+                                <field name="density"/>
+                                <field name="ntu"/>
+                                <field name="remark"/>
+
+                                
+                          
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+           </field>
+    </record>
+
+
+    <!-- ACTION FOR MODEL -->
+
+    <record id="action_circuit_post" model="ir.actions.act_window">
+        <field name="name">Circuit Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">circuit.post</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                Create Today Circuit Details.
+            </P>
+
+        </field>
+    </record>
+</odoo>
+

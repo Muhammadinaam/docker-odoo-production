@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    
+   <!-- TREE VIEW -->
+
+    <record id="view_widthsaltplate_post_tree" model="ir.ui.view">
+        <field name="name">widthsaltplate.post.tree</field>
+        <field name="model">widthsaltplate</field>
+        <field name="arch" type="xml">
+            
+                <tree>
+                    
+                       
+                                <field name="time"/>
+                                <field name="crystalizer_id"/>
+                                <field name="average" />
+                                <field name="timeperoid"/>
+                      
+                                <field name="dif1"/>
+                                <field name="dif2"/>
+                                <field name="dif3"/>
+                                <field name="dif4"/>
+                                <field name="dif5"/>
+                                <field name="dif6"/>
+                                <field name="dif7"/>
+                               
+                           
+                    
+                </tree>
+        </field>
+    </record>
+
+
+
+
+   <!-- FORM VIEW  -->
+
+
+    <record id="view_widthsaltplate_post_form" model="ir.ui.view">
+        <field name="name">widthsaltplate.form</field>
+        <field name="model">widthsaltplate</field>
+        <field name="arch" type="xml">
+            
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="time"/>
+                                <field name="crystalizer_id"/>
+                                <field name="average"/>
+                                <field name="timeperoid"/>
+                                
+                            </group>
+                            
+                        </group>
+                        <notebook>
+                            <page string="Sample 1" name="sample1">
+                                <group>
+                                    <field name="top1"/>
+                                    <field name="btm1"/>
+                                    <field name="dif1"/>
+                                </group>
+                            </page>
+                            <page string="Sample 2" name="sample2">
+                                <group>
+                                    <field name="top2"/>
+                                    <field name="btm2"/>
+                                    <field name="dif2"/>
+                                </group>
+                            </page>
+                            <page string="Sample 3" name="sample3">
+                                <group>
+                                    <field name="top3"/>
+                                    <field name="btm3"/>
+                                    <field name="dif3"/>
+                                </group>
+                            </page>
+                            <page string="Sample 4" name="sample4">
+                                <group>
+                                    <field name="top4"/>
+                                    <field name="btm4"/>
+                                    <field name="dif4"/>
+                                </group>
+                            </page>
+                             <page string="Sample 5" name="sample5">
+                                <group>
+                                    <field name="top5"/>
+                                    <field name="btm5"/>
+                                    <field name="dif5"/>
+                                </group>
+                            </page>
+                             <page string="Sample 6" name="sample6">
+                                <group>
+                                    <field name="top6"/>
+                                    <field name="btm6"/>
+                                    <field name="dif6"/>
+                                </group>
+                            </page>
+                              <page string="Sample 7" name="sample7">
+                                <group>
+                                    <field name="top7"/>
+                                    <field name="btm7"/>
+                                    <field name="dif7"/>
+                                </group>
+                            </page> 
+                            
+                        </notebook>
+                    </sheet>
+                </form>
+            
+            
+        </field>
+    </record>
+
+    <record id="action_widthsaltplate_post" model="ir.actions.act_window">
+        <field name="name"> Width plate </field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">widthsaltplate</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                Create Today Details of width Plate
+            </P>
+
+        </field>
+    </record>
+
+</odoo>

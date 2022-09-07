@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_projectedprod_post_tree" model="ir.ui.view">
+        <field name="name">projectedprod.post.tree</field>
+        <field name="model">salt_production.projectedprod</field>
+        <field name="arch" type="xml">
+
+            <tree>
+
+                <field name="time" />
+                <!-- <field name="name"/> -->
+                <field name="crystalizer_id" />
+                <field name="cycle" />
+                <field name="stime" />
+                <field name="etime" />
+                <field name="days" />
+                <field name="average" />
+                <field name="area" />
+                <field name="calcprod" sum="calculating" />
+                <field name="projected" sum="Projected" />
+                <field name="vari"  />
+
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_projectedprod_post_graph" model="ir.ui.view">
+        <field name="name">projectedprod.post.graph</field>
+        <field name="model">salt_production.projectedprod</field>
+        <field name="arch" type="xml">
+
+            <graph string="Production Graph">
+
+                <!-- <field name="time"/> -->
+                <!-- <field name="name"/> -->
+                <!-- <field name="crystalizer_id"/> -->
+                <!-- <field name="cycle" /> -->
+                <field name="vari" />
+                <!-- <field name="projected"  /> -->
+                <!-- <field name="projected"  /> -->
+
+
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_projectedprod_post_form" model="ir.ui.view">
+        <field name="name">projectedprod.form</field>
+        <field name="model">salt_production.projectedprod</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="time"/>
+                            <field name="cycle" />
+                            <field name="crystalizer_id"/>
+                            <field name="stime" />
+                            <field name="etime" />
+                            <field name="days" />
+                            <field name="average" />
+                            <field name="area" />
+                            <field name="calcprod" />
+                            <field name="projected" />
+
+
+                        </group>
+
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.projectedprod_action_window">
+        <field name="name">Crysteliser Projected Production</field>
+        <field name="res_model">salt_production.projectedprod</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

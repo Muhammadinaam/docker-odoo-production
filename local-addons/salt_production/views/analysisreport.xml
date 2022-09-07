@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_analysis_post_tree" model="ir.ui.view">
+        <field name="name">analysis.post.tree</field>
+        <field name="model">salt_production.analysis</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <!-- <field name="analysis_id" /> -->
+                <field name="time" />
+                <field name="crystalizer_id"/>
+                <field name="cat"/>
+               
+              
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_analysis_post_graph" model="ir.ui.view">
+        <field name="name">analysis.post.graph</field>
+        <field name="model">salt_production.analysis</field>
+        <field name="arch" type="xml">
+
+            <graph>
+               
+
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_analysis_post_form" model="ir.ui.view">
+        <field name="name">Sama Lab Analysis</field>
+        <field name="model">salt_production.analysis</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="time" />
+                            <field name="crystalizer_id"/>
+                            <field name="cat"/>
+                            <field name="sampletime"/>
+                            <field name="testperf"/>
+
+                            <!-- <field name="tests"/> -->
+                        </group>
+                        
+                    </group>
+                    <notebook>
+                        <page name="Analysis_Detail" string="Analysis Tests Details">
+                                <field name="analysis_line_ids">
+                                    <tree>
+                                        <field name="testings_id" />
+                                        <field name="unit" />
+                                        <field name="testmethod" />
+                                        <field name="scoretest"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="testings_id" />
+                                            <field name="unit" />
+                                            <field name="testmethod" />
+                                            <field name="scoretest"/>
+                                            <field name="remarks"/>
+                                        </group>
+                                    </form>
+                                </field>    
+                            </page>
+                    </notebook>
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.analysis_action">
+        <field name="name"> Sama Lab Analysis</field>
+        <field name="res_model">salt_production.analysis</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

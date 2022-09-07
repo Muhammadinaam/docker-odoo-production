@@ -14,12 +14,13 @@
     </record>
 
     <record model="ir.ui.view" id="salt_production.water_containers_list">
-      <field name="name">Water Containers</field>
+      <field name="name">Evaporators</field>
       <field name="model">salt_production.water_container</field>
       <field name="arch" type="xml">
         <tree>
           <field name="code"/>
           <field name="name"/>
+          <field name="area"/>
         </tree>
       </field>
     </record>
@@ -31,9 +32,12 @@
         <tree>
           <field name="code"/>
           <field name="name"/>
+          <field name="area"/>
         </tree>
       </field>
     </record>
+
+
 
 
     <!-- actions opening views on models -->
@@ -56,38 +60,179 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="salt_production.action_server">
-      <field name="name">salt_production server</field>
-      <field name="model_id" ref="model_salt_production_salt_production"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
 
-    <menuitem name="Salt Production" id="salt_production.menu_root"/>
+    <record model="ir.actions.act_window" id="salt_production.crystalizers_action_window">
+      <field name="name">Lab</field>
+      <field name="res_model">salt_production.crystalizer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <menuitem id="menu_salt_production_logo"
+    name="Salt Production" -->
+    
+    
+   
+    />
+  
+
+
+
+    <menuitem name="Salt Production" 
+              id="salt_production.menu_root"
+              web_icon="salt_production,static/description/icon.png"
+              />
+   
+    
     
     <!-- master data -->
-    <menuitem name="Master Data" 
-      parent="salt_production.menu_root"
-      id="salt_production.master_data" />
-    <menuitem name="Water Pumps" id="salt_production.water_pumps"
-      parent="salt_production.master_data"
-      action="salt_production.water_pumps_action_window" />
-    <menuitem name="Water Containers" id="salt_production.water_containers"
-      parent="salt_production.master_data"
-      action="salt_production.water_containers_action_window" />
-    <menuitem name="Crystalizers" id="salt_production.crystalizers"
-      parent="salt_production.master_data"
-      action="salt_production.crystalizers_action_window" />
+   <menuitem name="Washing - Harvesting" 
+              parent="salt_production.menu_root"
+              id="salt_production.lab_root1" />
 
+    <menuitem name="Production Forms" 
+              parent="salt_production.menu_root"
+              id="salt_production.master_data" />
+
+    <menuitem name="Data Points" 
+              parent="salt_production.menu_root"
+              id="salt_production.lab_root" />
+
+    <menuitem name="Processing" 
+              parent="salt_production.menu_root"
+              id="salt_production.lab_refine" />
+    
+    <menuitem name="Lab Form" 
+              parent="salt_production.menu_root"
+              id="salt_production.lab_form" />
+
+    
+    <menuitem name="Water Pumps" 
+              id="salt_production.water_pumps"
+              parent="salt_production.master_data"
+              action="salt_production.water_pumps_action_window" />
+
+    <menuitem name="Evaporators" 
+              id="salt_production.water_containers"
+              parent="salt_production.master_data"
+              action="salt_production.water_containers_action_window" />
+
+    <menuitem name="Crystalizers" 
+              id="salt_production.crystalizers"
+              parent="salt_production.master_data"
+              action="salt_production.crystalizers_action_window" />
+
+    <menuitem name="Analysis Test / Methods" 
+              id="salt_production.testings"
+              parent="salt_production.master_data"
+              action="salt_production.testings_action_window" />
+
+              
+
+
+    
+    <menuitem id="menu_weather_master"
+                name="Weather Details"
+                parent="salt_production.lab_root"
+                action="action_weather_post"
+                sequence="0"
+                />
+    
+
+    <menuitem id="menu_pump_master"
+                name="Pump Stations Form"
+                parent="salt_production.lab_root"
+                action="salt_production.pump_action"
+                sequence="0"
+                />
+        
+
+    
+    <menuitem id="menu_circuit_master"
+                name="Circuit"
+                parent="salt_production.lab_root"
+                action="action_circuit_post"
+                sequence="0"
+                />
+      
+    
+    <menuitem id="menu_circuittwo_master"
+                name="Circuit 2"
+                parent="salt_production.lab_root"
+                action="action_circuittwo_post"
+                sequence="0"
+                />
+
+    <menuitem id="menu_feed_evaporator_master"
+                name="Feed Evaporator"
+                parent="salt_production.lab_root"
+                action="salt_production.action_feed_evaporator_post"
+                sequence="0"
+                />
+
+                
+                
+
+    <menuitem id="menu_widthsaltplate_master"
+            name="Width of Salt Plate"
+            parent="salt_production.lab_root"
+            action="action_widthsaltplate_post"
+            sequence="0"
+            />
+
+    <menuitem id="menu_feed_washing_master"
+            name="Washing Process"
+            parent="salt_production.lab_root1"
+            action="salt_production.washing_action_window"
+            sequence="0"
+            />
+
+    <menuitem id="menu_feed_projectedprod_master"
+            name="Projected Production"
+            parent="salt_production.lab_root1"
+            action="salt_production.projectedprod_action_window"
+            sequence="0"
+            />
+    
+    <menuitem id="menu_feed_productionconsume_master"
+            name="Production Cosumption Index"
+            parent="salt_production.lab_refine"
+            action="salt_production.productionconsume_action_window"
+            sequence="0"
+            />
+
+    <menuitem id="menu_feed_burnerconsume_master"
+            name="Burner Cosumption Index"
+            parent="salt_production.lab_refine"
+            action="salt_production.burnerconsume_action_window"
+            sequence="0"
+            />
+            
+    <menuitem id="menu_feed_refine_master"
+            name="Refinary"
+            parent="salt_production.lab_refine"
+            action="salt_production.refine_action_window"
+            sequence="0"
+            />
+
+    <menuitem id="menu_feed_labs_master"
+      name="Lab Analysis"
+      parent="salt_production.lab_form"
+      action="salt_production.analysis_action"
+      sequence="0"
+    />
+
+
+    
+               
+
+
+            
+
+
+
+
+    
+    
     <!-- production data -->
     <!-- <menuitem name="Production Data" 
       parent="salt_production.menu_root"

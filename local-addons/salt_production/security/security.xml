@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- TYPES OF GROUPS -->
+    <!-- TYPES OF GROUPS -->
+    <!-- TYPES OF GROUPS -->
+    <record  id="category_manager_salt" model="ir.module.category">
+        <field name="name">Sama Salt Production Charts</field>
+        <field name="description">Create Charts for Production Process</field>
+    </record>
+
+    <record  id="category_manager_production_salt" model="ir.module.category">
+        <field name="name">Sama Salt Production Process</field>
+        <field name="description">Create Charts for Production Process</field>
+    </record>
+
+    <record  id="category_lab_salt" model="ir.module.category">
+        <field name="name">Sama Salt Production Process</field>
+        <field name="description">Create Charts for Production Process</field>
+    </record>
+
+    <record  id="category_lab_saltreports" model="ir.module.category">
+        <field name="name">Sama Salt Reports</field>
+        <field name="description">See Reports</field>
+    </record>
+
+    <record  id="accounting_post_journal" model="ir.module.category">
+        <field name="name">Accounts Other</field>
+        <field name="description">Can Post Journal</field>
+    </record>
+   
+    <!-- TYPES OF GROUPS -->
+    <!-- TYPES OF GROUPS -->
+    <!-- TYPES OF GROUPS --> 
+
+    <record  id="group_post_journal" model="res.groups">
+        <field name="name">Can Post Journal</field>
+        <field name="category_id" ref="accounting_post_journal"/>
+    </record>
+     <!-- TYPES REPORTS --> 
+     <!-- TYPES REPORTS --> 
+
+     <record  id="group_reports" model="res.groups">
+        <field name="name">Can Watch Reports</field>
+        <field name="category_id" ref="category_lab_saltreports"/>
+    </record>
+    <!-- TYPES REPORTS --> 
+    <!-- TYPES REPORTS -->  
+
+    <!-- TYPES OF LAB --> 
+    <!-- TYPES OF LAB --> 
+
+    <record  id="group_weather" model="res.groups">
+        <field name="name">Create Weather details</field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record>
+
+    <record  id="group_circuit" model="res.groups">
+        <field name="name"> Circuit 1  </field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record>
+
+    <record  id="group_circuit2" model="res.groups">
+        <field name="name"> Circuit 2  </field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record>
+
+    <!-- <record  id="group_circuit2" model="res.groups">
+        <field name="name"> Circuit 2  </field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record> -->
+
+    <record  id="group_testreport" model="res.groups">
+        <field name="name"> Analysis Test form</field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record>
+
+    <record  id="group_pump_station" model="res.groups">
+        <field name="name"> Pump Stations</field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record>
+
+    <!-- <record  id="group_pump_station" model="res.groups">
+        <field name="name"> Pump Stations</field>
+        <field name="category_id" ref="category_lab_salt"/>
+    </record> -->
+
+    <!-- TYPES OF LAB --> 
+    <!-- TYPES OF LAB --> 
+
+    <!-- TYPES OF WASHING -  REFINE --> 
+    <!-- TYPES OF WASHING -  REFINE --> 
+
+    <record  id="group_washing_all_salt" model="res.groups">
+        <field name="name">Manager Washing</field>
+        <field name="category_id" ref="category_manager_production_salt"/>
+    </record>
+
+    <record  id="group_refine_all_salt" model="res.groups">
+        <field name="name">Manager Refine</field>
+        <field name="category_id" ref="category_manager_production_salt"/>
+    </record>
+
+    <record  id="group_prodConsume_all_salt" model="res.groups">
+        <field name="name">Manager Production Consume</field>
+        <field name="category_id" ref="category_manager_production_salt"/>
+    </record>
+
+    <record  id="group_Burner_all_salt" model="res.groups">
+        <field name="name">Manager Burner Consume</field>
+        <field name="category_id" ref="category_manager_production_salt"/>
+    </record>
+
+    <record  id="group_projprod_all_salt" model="res.groups">
+        <field name="name">Manager Projected Production</field>
+        <field name="category_id" ref="category_manager_production_salt"/>
+    </record>
+
+
+    <!-- TYPES OF WASHING -  REFINE --> <!-- TYPES OF WASHING -  REFINE --> 
+    <!-- TYPES OF WASHING -  REFINE --> <!-- TYPES OF WASHING -  REFINE --> 
+
+
+
+
+
+
+
+    <record  id="group_evaporator_all_salt" model="res.groups">
+        <field name="name">Create Evaporator</field>
+        <field name="category_id" ref="category_manager_salt"/>
+    </record>
+    <record  id="group_writeevaporator_all_salt" model="res.groups">
+        <field name="name">write Evaporator</field>
+        <field name="category_id" ref="category_manager_salt"/>
+    </record>
+
+    <record  id="group_crystalizer_all_salt" model="res.groups">
+        <field name="name">Create Crystalizer</field>
+        <field name="category_id" ref="category_manager_salt"/>
+         
+    </record>
+    <record  id="group_writecrystalizer_all_salt" model="res.groups">
+        <field name="name">Write Crystalizer</field>
+        <field name="category_id" ref="category_manager_salt"/>
+         
+    </record>
+
+    <record  id="group_Pump_all_salt" model="res.groups">
+        <field name="name">Create Pump</field>
+        <field name="category_id" ref="category_manager_salt"/> 
+    </record>
+    <record  id="group_writePump_all_salt" model="res.groups">
+        <field name="name">Write Pump</field>
+        <field name="category_id" ref="category_manager_salt"/> 
+    </record>
+
+    <record  id="group_TestMethods_all_salt" model="res.groups">
+        <field name="name">Create Tests - Methods</field>
+        <field name="category_id" ref="category_manager_salt"/>
+         
+    </record>
+
+    <record  id="group_projectedprod_manager" model="res.groups">
+        <field name="name">Manager ProjectedProd</field>
+        <field name="category_id" ref="category_manager_salt"/>
+        
+    </record>
+
+
+
+    <!-- <record  id="group_projectedprod_assistant" model="res.group">
+        <field name="name">AssitantProjectedProd</field>
+        <field name="category_id" ref="module_category_projectedprod" />
+        
+    </record> -->
+
+</odoo>

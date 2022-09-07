@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    
+   <!-- TREE VIEW -->
+
+    <record id="view_weather_post_tree" model="ir.ui.view">
+        <field name="name">weather.post.tree</field>
+        <field name="model">weather.post</field>
+        <field name="arch" type="xml">
+            
+                <tree>
+                    
+                       
+                                <field name="date" optional="show"/>
+                                <field name="time" optional = "hide"/>
+                                <field name="tempC"/>
+                                <field name="humidity"/>
+                                
+                          
+                                <field name="windspeed"/>
+                                <field name="windDirection"/>
+                                <field name="rainfall"/>
+                                <field name="beaufort"/>
+                                <field name="evaporation"/>
+                           
+                    
+                </tree>
+        </field>
+    </record>
+
+
+
+
+   <!-- FORM VIEW  -->
+
+
+    <record id="view_weather_post_form" model="ir.ui.view">
+        <field name="name">weather.post.form</field>
+        <field name="model">weather.post</field>
+        <field name="arch" type="xml">
+            
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="time"/>
+                                <field name="tempC"/>
+                                <field name="humidity"/>
+                                
+                            </group>
+                            <group>
+                                <field name="windspeed"/>
+                                <field name="windDirection"/>
+                                <field name="rainfall"/>
+                                <field name="beaufort"/>
+                                <field name="evaporation"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            
+            
+        </field>
+    </record>
+
+    <record id="action_weather_post" model="ir.actions.act_window">
+        <field name="name">Weather Condition Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">weather.post</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                Create Today Details of Weather.
+            </P>
+
+        </field>
+    </record>
+
+
+
+  
+
+    
+
+</odoo>
+

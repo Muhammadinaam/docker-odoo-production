@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_refine_post_tree" model="ir.ui.view">
+        <field name="name">refine.post.tree</field>
+        <field name="model">salt_production.refine</field>
+        <field name="arch" type="xml">
+
+            <tree>
+
+                <field name="time" />
+                <field name="crystalizer_id" />
+                <field name="customer" />
+                <field name="saleorder" />
+                <field name="cycle" />
+                <field name="rawincome" />
+                <!-- <field name="moistPerc" /> -->
+                <!-- <field name="moist_mt" /> -->
+                <field name="aftermoist" />
+                
+                <field name="catincome" />
+                <field name="coarse_and_fine" />
+                <field name="coarse" />
+                <field name="finesalt" />
+
+                <field name="powdersalt" />
+                <field name="totalrefine" />
+                <!-- <field name="lossrefinePerc" />
+                <field name="lossrefine" /> -->
+
+                
+           
+                <!-- <field name="stime" />
+                <field name="etime" />
+                <field name="hours" />
+                <field name="interuption" />
+                -->
+               <field name="effectivehr" sum="calculated" />
+               <field name="perhrprod" sum="Projected" />
+               <!-- <field name="remarks" />
+               <field name="coarsePerc" />
+               <field name="finePerc" />
+               <field name="coarsefinePerc" />
+               <field name="powderPerc" />
+               <field name="totalPerc" /> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_refine_post_graph" model="ir.ui.view">
+        <field name="name">refine.post.graph</field>
+        <field name="model">salt_production.refine</field>
+        <field name="arch" type="xml">
+
+            <graph>
+
+                <field name="time"/>
+                <!-- <field name="name"/> -->
+                <field name="crystalizer_id"/>
+                <!-- <field name="cycle" />
+
+                <field name="calcprod" sum="calculated" type="measure" />
+                <field name="projected" sum="Projected" type="measure" /> -->
+
+
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_refine_post_form" model="ir.ui.view">
+        <field name="name">refine.form</field>
+        <field name="model">salt_production.refine</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="time" />
+                            <field name="crystalizer_id" />
+                            <field name="customer" />
+                            <field name="saleorder" />
+                            <field name="cycle" />
+                            <field name="cat" />
+                            <field name="rawincome" />
+                            <field name="moistPerc" />
+                            <field name="moist_mt" />
+                            <field name="aftermoist" />
+
+                            <field name="catincome" />
+                            <field name="coarse_and_fine" />
+                            <field name="coarse" />
+                            <field name="finesalt" />
+
+                            <field name="powdersalt" />
+                            <field name="totalrefine" />
+                            <field name="lossrefinePerc" />
+                            <field name="lossrefine" />
+
+                            
+                        </group>
+                        <group>
+                            <field name="stime" />
+                            <field name="etime" />
+                            <field name="hours" />
+                            <field name="halftime" />
+                            <field name="total_hrs" />
+                            <field name="interuption" />
+                           
+                           <field name="effectivehr" sum="calculated" />
+                           <field name="perhrprod" sum="Projected" />
+                           <field name="remarks" />
+                           <field name="coarsefinePerc" />
+                           <field name="coarsePerc" />
+                           <field name="finePerc" />
+                           <field name="powderPerc" />
+                           <field name="totalPerc" />
+
+                           
+
+                        </group>
+
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.refine_action_window">
+        <field name="name">Production Refine</field>
+        <field name="res_model">salt_production.refine</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="view_id" ref="view_refine_post_tree"/>
+    </record>
+
+</odoo>

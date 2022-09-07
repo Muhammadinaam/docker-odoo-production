@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_pump_post_tree" model="ir.ui.view">
+        <field name="name">pump.post.tree</field>
+        <field name="model">salt_production.pump</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="time" />
+                <field name="water_pump_id"/>
+               
+                <field name="hours"/>
+                <field name="statusOP"/>
+                <field name="remarks"/>
+                <field name="volume"/>
+                <field name="capacity"/>
+              
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pump_post_graph" model="ir.ui.view">
+        <field name="name">pump.post.graph</field>
+        <field name="model">salt_production.pump</field>
+        <field name="arch" type="xml">
+
+            <graph>
+               
+
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_pump_post_form" model="ir.ui.view">
+        <field name="name">pump.form</field>
+        <field name="model">salt_production.pump</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="time" />
+                            <field name="water_pump_id"/>
+                            <field name="stime"/>
+                            <field name="etime"/>
+                        </group>
+                        <group>
+                            <field name="hours"/>
+                            <field name="statusOP"/>
+                            <field name="remarks"/>
+                            <field name="volume"/>
+                            <field name="capacity"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.pump_action">
+        <field name="name"> Pump</field>
+        <field name="res_model">salt_production.pump</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

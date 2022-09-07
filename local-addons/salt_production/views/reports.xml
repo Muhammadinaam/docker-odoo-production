@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Washing report summary -->
+	<record id="washing_report_summary" model="ir.ui.view">
+		<field name="name">washing_report_summary</field>
+		<field name="model">salt_production.washing_report_periods_summary</field>
+		<field name="arch" type="xml">
+			<tree create="false" string="Washing Report Summary">
+                <field name="period" />
+				<field name="crystalizer_id" />
+				<field name="total_production" />
+				<field name="effective_working_hours" />
+				<field name="productivity_per_hour" />
+				<field name="total_washing_losses" />
+				<field name="water_load_salt_losses" />
+                <field name="washing_losses" />
+			</tree>
+		</field>
+	</record>
+	
+	<!-- Washing report -->
+	<record id="washing_report" model="ir.ui.view">
+		<field name="name">washing_report</field>
+		<field name="model">salt_production.washing</field>
+		<field name="arch" type="xml">
+			<tree create="false" string="Washing Report">
+                <field name="time" string="Date/Time" />
+				<field name="crystalizer_id" />
+				<!-- <field name="whicheverisless" string="Input" sum="Total Input" /> -->
+				<field name="net_salt_produced" string="Total production" sum="Total production" />
+				<field name="effectivehr" string="Effective hours" sum="Effective hours" />
+				<field name="perhrprod" string="Productivity per hour" sum="Productivity per hour" />
+				<field name="waterloadloss" sum="waterloadloss" />
+                <field name="washinglosscalc" sum="washinglosscalc" />
+			</tree>
+		</field>
+    </record>
+
+	<!-- Raw Salt Report -->
+	<record id="rawsalt_report" model="ir.ui.view">
+		<field name="name">RawSalt_report</field>
+		<field name="model">salt_production.washing</field>
+		<field name="arch" type="xml">
+			<tree create="false" string="Washing Report">
+                <field name="time" string="Date/Time" />
+				<field name="crystalizer_id" />
+				<field name="cycle" />
+				<field name="trips" sum="trips" />
+				<field name="belt1" sum="belt1" />
+				<field name="waterload" />
+				<field name="waterloadloss" sum="waterloadloss"/>
+				<field name="rawsalt" sum="rawsalt"/>
+				<!-- <field name="whicheverisless" string="Input" sum="Total Input" /> -->
+				<!-- <field name="net_salt_produced" string="Total production" sum="Total production" />
+				<field name="effectivehr" string="Effective hours" sum="Effective hours" />
+				<field name="perhrprod" string="Productivity per hour" sum="Productivity per hour" />
+				<field name="waterloadloss" sum="waterloadloss" />
+                <field name="washinglosscalc" sum="washinglosscalc" /> -->
+			</tree>
+		</field>
+    </record>
+
+    <!-- Refinary report summary -->
+	<record id="refinary_report_summary" model="ir.ui.view">
+		<field name="name">refinary_report_summary</field>
+		<field name="model">salt_production.refinary_report_periods_summary</field>
+		<field name="arch" type="xml">
+			<tree create="false">
+				<field name="period" />
+				<field name="salt_input" />
+                <field name="total_production" />
+                <field name="coarse_salt" />
+				<field name="fine_salt" />
+				<field name="coarse_and_fine_salt" />
+                <field name="powder_salt" />
+                <field name="effective_working_hours" />
+                <field name="productivity_per_hour" />
+                <field name="production_losses" />
+			</tree>
+		</field>
+	</record>
+	
+	<!-- Refinary report -->
+	<record id="refinary_report" model="ir.ui.view">
+		<field name="name">refinary_report</field>
+		<field name="model">salt_production.refine</field>
+		<field name="arch" type="xml">
+			<tree create="false">
+				<field name="time" />
+				<field name="rawincome" sum="rawincome" />
+                <field name="totalrefine" sum="totalrefine" />
+                <field name="coarse" sum="coarse" />
+				<field name="finesalt" sum="finesalt" />
+				<field name="coarse_and_fine" sum="coarse_and_fine" />
+                <field name="powdersalt" sum="powdersalt" />
+                <field name="effectivehr" sum="effectivehr" />
+                <field name="perhrprod" sum="perhrprod" />
+                <field name="lossrefine" sum="lossrefine" />
+			</tree>
+		</field>
+	</record>
+	
+	<!-- Actual and Projected Variance Report -->
+	<record id="actual_projected_variance_report" model="ir.ui.view">
+		<field name="name">actual_projected_variance_report</field>
+		<field name="model">salt_production.actual_and_projected_report</field>
+		<field name="arch" type="xml">
+			<tree create="false">
+				<field name="month" />
+				<field name="crystalizer_id" />
+				<field name="cycle" />
+				<field name="actual_production" />
+				<field name="projected_production" />
+				<field name="variance" />
+				<field name="efficiency" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Actual and Projected Graph -->
+	<record id="actual_projected_washing_production_graph" model="ir.ui.view">
+		<field name="name">actual_projected_washing_production_graph</field>
+		<field name="model">salt_production.actual_and_projected_washing_production_graph</field>
+		<field name="arch" type="xml">
+			<graph>
+				<field name="month" type="row" />
+				<field name="production" type="measure" />
+			</graph>
+		</field>
+	</record>
+
+    <!-- windows -->
+	<record model="ir.actions.act_window" id="washing_report_summary_window">
+		<field name="name">Washing Report Summary</field>
+		<field name="res_model">salt_production.washing_report_periods_summary</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="context">{'group_by': ['period', 'crystalizer_id']}</field>
+	</record>
+	<record model="ir.actions.act_window" id="washing_report_window">
+		<field name="name">Washing Report</field>
+		<field name="res_model">salt_production.washing</field>
+		<field name="view_mode">tree,pivot,graph</field>
+		<field name="view_id" ref="washing_report"/>
+        <!-- <field name="context">{'group_by': ['period', 'crystalizer_id']}</field> -->
+    </record>
+	 <!-- RAW SALT WINDOW -->
+	<record model="ir.actions.act_window" id="rawsalt_report_window">
+		<field name="name">RawSalt Report</field>
+		<field name="res_model">salt_production.washing</field>
+		<field name="view_mode">tree,pivot,graph</field>
+		<field name="view_id" ref="rawsalt_report"/>
+        <!-- <field name="context">{'group_by': ['period', 'crystalizer_id']}</field> -->
+    </record>
+	<!-- RAW SALT WINDOW -->
+    <record model="ir.actions.act_window" id="refinary_report_summary_window">
+		<field name="name">Refinary Report Summary</field>
+		<field name="res_model">salt_production.refinary_report_periods_summary</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="context">{'group_by': ['period', 'crystalizer_id']}</field>
+	</record>
+	<record model="ir.actions.act_window" id="refinary_report_window">
+		<field name="name">Refinary Report</field>
+		<field name="res_model">salt_production.refine</field>
+		<field name="view_mode">tree,pivot,graph</field>
+		<field name="view_id" ref="refinary_report"/>
+        <!-- <field name="context">{'group_by': ['period', 'crystalizer_id']}</field> -->
+	</record>
+	<record model="ir.actions.act_window" id="actual_projected_variance_report_window">
+		<field name="name">Actual and Projected Production Variance</field>
+		<field name="res_model">salt_production.actual_and_projected_report</field>
+		<field name="view_mode">tree,pivot,graph</field>
+        <!-- <field name="context">{'group_by': ['period', 'crystalizer_id']}</field> -->
+	</record>
+	<record model="ir.actions.act_window" id="actual_projected_washing_production_graph_window">
+		<field name="name">Actual and Projected Production Graph</field>
+		<field name="res_model">salt_production.actual_and_projected_washing_production_graph</field>
+		<field name="view_mode">graph</field>
+        <field name="context">{'group_by': ['month', 'production_type'], 'graph_mode':'line'}</field>
+    </record>
+    
+    <!-- menus -->
+	<data>
+		<menuitem name="Reports" parent="salt_production.menu_root" id="salt_production.reports" />
+		<menuitem sequence="10" name="Washing Report" parent="salt_production.reports" id="salt_production.washing_report_window_menu" action="washing_report_window" />
+
+		<menuitem sequence="10" name="Raw Salt Report" parent="salt_production.reports" id="rawsalt" action="rawsalt_report_window" />
+
+		<menuitem sequence="20" name="Washing Report Summary (By Period)" parent="salt_production.reports" id="salt_production.washing_report_summary_window_menu" action="washing_report_summary_window" />
+		<menuitem sequence="30" name="Refining Report" parent="salt_production.reports" id="salt_production.refinary_report_window_menu" action="refinary_report_window" />
+		<menuitem sequence="40" name="Refining Report Summary" parent="salt_production.reports" id="salt_production.refinary_report_summary_window_menu" action="refinary_report_summary_window" />
+		<menuitem sequence="50" name="Actual and Projected Production Variance" parent="salt_production.reports" id="actual_projected_variance_report_window_menu" action="actual_projected_variance_report_window" />
+		<menuitem sequence="60" name="Actual and Projected Production Graph" parent="salt_production.reports" id="actual_projected_washing_production_graph_window_menu" action="actual_projected_washing_production_graph_window" />
+	</data>
+</odoo>
