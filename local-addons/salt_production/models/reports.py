@@ -230,3 +230,49 @@ class ActualAndProjectedWashingProductionGraph(models.Model):
             )"""
         print(report_query)
         self._cr.execute(report_query)
+
+
+class AnalysisReport(models.Model):
+    _name = 'salt_production.analysisreport'
+    _auto = False
+
+    crystalizer_name = fields.Char(string="Crystalizer Name")
+    time = fields.Datetime(string="Date of Entry")
+    sampletime = fields.Datetime(string="sample Taken At")
+    testperf = fields.Datetime(string="Test Performed at")
+    cat = fields.Char(string="Category")
+    testname = fields.Char(string="Test Name")
+    testmethod = fields.Char(string="Method of Test")
+    scoretest = fields.Char(string="Score")
+
+    def init(self):
+
+        query = """
+        select ROW_NUMBER() OVER() as id, t.* from (select 
+            salt_production_crystalizer.name as crystalizer_name,
+            salt_production_analysis.time,
+            salt_production_analysis.sampletime,
+            salt_production_analysis.testperf,
+            salt_production_analysis.cat,
+            analysis_lines.unit,
+            salt_production_testings.testmethod,
+            salt_production_testings.testname,
+            analysis_lines.scoretest
+            from salt_production_analysis
+            join analysis_lines on salt_production_analysis.id = analysis_lines.analysis_id
+            join salt_production_crystalizer on salt_production_analysis.crystalizer_id = salt_production_crystalizer.id
+            join salt_production_testings on analysis_lines.testings_id = salt_production_testings.id
+        ) t
+
+        """
+
+        view_name = 'salt_production_analysisreport'
+        tools.drop_view_if_exists(
+            self._cr, view_name)
+
+        report_query = f"""
+            CREATE OR REPLACE VIEW
+            {view_name} AS (
+                {query}
+            )"""
+        self._cr.execute(report_query)

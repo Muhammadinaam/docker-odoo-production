@@ -15,8 +15,8 @@
                                 <field name="top"/>
                                 <field name="btm"/>
                                 <field name="height"/>
-                                <field name="h_woodenbarrier"/>
                                 <field name="brine_overflow"/>
+                                <field name="h_woodenbarrier"/>
 
                             
 
@@ -92,4 +92,3 @@
         </field>
     </record>
 </odoo>
-

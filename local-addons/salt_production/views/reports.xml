@@ -177,10 +177,87 @@
 		<field name="view_mode">graph</field>
         <field name="context">{'group_by': ['month', 'production_type'], 'graph_mode':'line'}</field>
     </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<record id="analysis_report" model="ir.ui.view">
+		<field name="name">analysis_report</field>
+		<field name="model">salt_production.analysisreport</field>
+		<field name="arch" type="xml">
+			<tree create="false">
+				<field name="time" />
+				<field name="crystalizer_name" />
+				<field name="sampletime" />
+				<field name="testperf" />
+				<field name="cat" />
+				<field name="testname" />
+				<field name="testmethod" />
+				<field name="scoretest" />
+				
+
+
+				<!-- <field name="crystalizer_id" /> -->
+				
+			</tree>
+		</field>
+	</record>
+
+
+
+
+
+
+
+
+	<record model="ir.actions.act_window" id="analysis_report_window">
+		<field name="name">Analysis report</field>
+		<field name="res_model">salt_production.analysisreport</field>
+		
+		<field name="view_id" ref="analysis_report"/>
+
+    </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     <!-- menus -->
 	<data>
 		<menuitem name="Reports" parent="salt_production.menu_root" id="salt_production.reports" />
+		<menuitem sequence="5" name="Analysis Report" parent="salt_production.reports" id="salt_production.analysis_window_menu" action="analysis_report_window" />
+
 		<menuitem sequence="10" name="Washing Report" parent="salt_production.reports" id="salt_production.washing_report_window_menu" action="washing_report_window" />
 
 		<menuitem sequence="10" name="Raw Salt Report" parent="salt_production.reports" id="rawsalt" action="rawsalt_report_window" />

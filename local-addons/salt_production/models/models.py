@@ -703,9 +703,8 @@ class Pump(models.Model):
         ('Operating', 'Operating'), ('Non-Operating', 'Non-Operating')
     ], string="Status")
     remarks = fields.Char(string="Remarks")
-    volume = fields.Float(string="Volume (m^3)")
-    capacity = fields.Float(string="Capacity (m^3/h)",
-                            compute="_compute_capacity")
+    capacity = fields.Float(string="Capacity (m^3/h)")
+    volume = fields.Float(string="Volume (m^3)",compute="_compute_volume")
 
     @api.depends("etime")
     def _compute_hours(self):
@@ -717,14 +716,13 @@ class Pump(models.Model):
             else:
                 record.hours = 0
 
-    @api.depends("volume")
-    def _compute_capacity(self):
+    @api.depends("capacity")
+    def _compute_volume(self):
         for record in self:
             if(record.hours):
-
-                record.capacity = record.volume/record.hours
+                record.volume = record.capacity * record.hours
             else:
-                record.capacity = 0
+                record.volume = 0
 
 
 class Analysis(models.Model):
@@ -739,7 +737,10 @@ class Analysis(models.Model):
     cat = fields.Selection([
         ('Raw Salt', 'Raw Salt'), ('Washed-1', 'Washed-1'),
          ('Washed-2','Washed-2'), ('Washed-3', 'Washed-3'), 
-         ('Washed-4', 'Washed-4')
+         ('Washed-4', 'Washed-4'),('Refined Salt', 'Refined Salt'),
+         ('Coarse Salt', 'Coarse Salt'),
+         ('Fine Salt', 'Fine Salt'),
+         ('Coarse + Fine Salt', 'Coarse + Fine Salt'),
         ], string="Category")
 
     analysis_line_ids = fields.One2many('analysis.lines', 'analysis_id', string="Analysis Uper Lines")

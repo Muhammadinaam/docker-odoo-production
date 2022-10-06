@@ -17,8 +17,8 @@
                 <field name="hours"/>
                 <field name="statusOP"/>
                 <field name="remarks"/>
-                <field name="volume"/>
                 <field name="capacity"/>
+                <field name="volume"/>
               
 
             </tree>
@@ -59,8 +59,8 @@
                             <field name="hours"/>
                             <field name="statusOP"/>
                             <field name="remarks"/>
-                            <field name="volume"/>
                             <field name="capacity"/>
+                            <field name="volume"/>
                         </group>
                     </group>
 
