@@ -30,7 +30,7 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'category': 'Point of Sale',
     'depends': ['pos_restaurant', 'point_of_sale'],
-    'website': 'http://www.cybrosys.com',
+    'website': 'http://www.akonto.ltd',
     'data': [
         'views/views.xml',
         'security/ir.model.access.csv'
@@ -50,5 +50,5 @@
     'currency': 'EUR',
     'installable': True,
     'auto_install': False,
-    'application': False,
+    'application': True,
 }

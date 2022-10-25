@@ -1,0 +1,35 @@
+version: "3.1"
+services:
+  web:
+    image: odoo:15
+    container_name: web-odoo
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./local-addons:/mnt/extra-addons
+    environment:
+      - USER=postgres
+      - PASSWORD=12345
+    networks:
+      - odoo
+    command: -i base
+  proxy:
+    container_name: proxy-odoo
+    depends_on:
+            - web
+    container_name: odoo_proxy
+    build:
+        context: .
+        dockerfile: Dockerfile-nginx
+    ports:
+        - "8069:8069"
+    networks:
+      - odoo
+
+networks:
+  odoo:
+    driver: bridge
+
+
+volumes:
+  odoo-web-data:
