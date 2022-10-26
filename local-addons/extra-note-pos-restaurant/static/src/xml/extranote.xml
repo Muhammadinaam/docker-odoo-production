@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="bill_extra_note" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('cashier')]" position="after">
+            <br/>
+            Note : <t t-esc="env.pos.get_order().extra_note"/>
+            <br/>
+        </xpath>
+    </t>
+
+    <t t-name="kitchen_extra_note" t-inherit="pos_restaurant.OrderChangeReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt-title')]" position="after">
+            <br/>
+            Note : <t t-esc="env.pos.get_order().extra_note"/>
+            <br/>
+        </xpath>
+    </t>
+
+    <t t-name="removeDeleteButton" t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('order-row')]//div[@name='delete']" position="replace">
+            <div t-if="false" name="delete"></div>
+        </xpath>
+    </t>
+
+
+
+
+
+    <t t-name="OrderExtraNoteButton" owl="1">
+        <div class='control-button'>
+            <i class='fa fa-truck' role="img" aria-label="Set Extra Note" title="Set Extra Note"/> <t t-esc='get_extra_note()'/>
+        </div>
+    </t>
+
+</templates>
