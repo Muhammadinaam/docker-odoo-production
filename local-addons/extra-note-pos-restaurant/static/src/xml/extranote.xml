@@ -12,9 +12,8 @@
     <t t-name="kitchen_extra_note" t-inherit="pos_restaurant.OrderChangeReceipt" t-inherit-mode="extension" owl="1">
         <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="after">
             <br/>
-            <t t-esc="env.pos.get_order().extra_note"/>
+            <t t-esc="widget.extra_note"/>
             <br/>
-            Order Type : <t t-esc="env.pos.get_order().delivery_method.name"/><br/>
         </xpath>
     </t>
 
