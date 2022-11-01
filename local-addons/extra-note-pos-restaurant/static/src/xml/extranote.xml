@@ -4,16 +4,17 @@
     <t t-name="bill_extra_note" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
         <xpath expr="//div[hasclass('cashier')]" position="after">
             <br/>
-            Note : <t t-esc="env.pos.get_order().extra_note"/>
+            <t t-esc="env.pos.get_order().extra_note"/>
             <br/>
         </xpath>
     </t>
 
     <t t-name="kitchen_extra_note" t-inherit="pos_restaurant.OrderChangeReceipt" t-inherit-mode="extension" owl="1">
-        <xpath expr="//div[hasclass('pos-receipt-title')]" position="after">
+        <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="after">
             <br/>
-            Note : <t t-esc="env.pos.get_order().extra_note"/>
+            <t t-esc="env.pos.get_order().extra_note"/>
             <br/>
+            Order Type : <t t-esc="env.pos.get_order().delivery_method.name"/><br/>
         </xpath>
     </t>
 

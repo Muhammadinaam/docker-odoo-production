@@ -1,4 +1,3 @@
-alert('aaddbb')
 odoo.define('extra_note_pos_restaurant.OrderExtraNoteButton', function (require) {
     'use strict';
 
