@@ -84,6 +84,20 @@ class FeedEvaporator(models.Model):
         # ('code_uniq', 'unique (wa)', "Code already exists!"),
     ]
 
+class HealthSafety(models.Model):
+    _name = 'salt_production.healthsafety'
+    _description = 'salt_production.healthsafety'
+
+    time = fields.Datetime(string="Time", required=True)
+    
+    title = fields.Char(string="Title of the File", required=True)
+    upload_file = fields.Binary(string='Upload file')
+
+    _sql_constraints = [
+        # ('name_uniq', 'unique (name)', "Name already exists!"),
+        # ('code_uniq', 'unique (wa)', "Code already exists!"),
+    ]
+
 
 class WidthSaltPlate(models.Model):
     _name = 'widthsaltplate'

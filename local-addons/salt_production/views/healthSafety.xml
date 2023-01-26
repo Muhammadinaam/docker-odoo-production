@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+
+    <!-- TREE VIEW -->
+
+    <record id="view_health_post_tree" model="ir.ui.view">
+        <field name="name">health.post.tree</field>
+        <field name="model">salt_production.healthsafety</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="time" />
+                <field name="title"/>
+                <field name="upload_file"/>
+              
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- <record id="view_pump_post_graph" model="ir.ui.view">
+        <field name="name">pump.post.graph</field>
+        <field name="model">salt_production.pump</field>
+        <field name="arch" type="xml">
+
+            <graph>
+               
+
+            </graph>
+        </field>
+    </record> -->
+
+
+    <!-- FORM VIEW  -->
+
+
+    <record id="view_health_post_form" model="ir.ui.view">
+        <field name="name">health.form</field>
+        <field name="model">salt_production.healthsafety</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group>
+                        
+                            <field name="time" />
+                            <field name="title"/>
+                            <field name="upload_file"/>
+                            <!-- <field name="stime"/>
+                            <field name="etime"/> -->
+                     
+                        
+                    </group>
+
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="salt_production.health_action">
+        <field name="name"> Health Safety</field>
+        <field name="res_model">salt_production.healthsafety</field>
+        <!-- <field name="view_mode">tree,form,graph</field> -->
+    </record>
+
+</odoo>

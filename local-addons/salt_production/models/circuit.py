@@ -32,7 +32,7 @@ class CircuitPost(models.Model):
     @api.depends("height")
     def _compute_brine_height(self):
         for record in self:
-            record.brine_overflow = record.height - record.h_woodenbarrier
+            record.brine_overflow = record.top - record.h_woodenbarrier
     
     
         

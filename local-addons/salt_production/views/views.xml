@@ -104,6 +104,10 @@
     <menuitem name="Lab Form" 
               parent="salt_production.menu_root"
               id="salt_production.lab_form" />
+    
+    <menuitem name="Health And Safety" 
+              parent="salt_production.menu_root"
+              id="salt_production.health_safety" />
 
     
     <menuitem name="Water Pumps" 
@@ -190,6 +194,12 @@
             name="Projected Production"
             parent="salt_production.lab_root1"
             action="salt_production.projectedprod_action_window"
+            sequence="0"
+            />
+    <menuitem id="menu_feed_health_safety"
+            name="Health and Safety"
+            parent="salt_production.health_safety"
+            action="salt_production.health_action"
             sequence="0"
             />
     

@@ -196,28 +196,25 @@ class ActualAndProjectedWashingProductionGraph(models.Model):
 
     month = fields.Datetime(string="Month")
     production_type = fields.Char(string="Production type")
-    crystalizer_id = fields.Many2one(
-        'salt_production.crystalizer',
-        'Crystalizer'
-    )
-    cycle = fields.Char(string="Cycle")
     production = fields.Float(string='Production')
+    aggreg = fields.Float(string='Aggregate')
 
     def init(self):
 
         query = """
-        select ROW_NUMBER() OVER() as id, t.* from (
+   
+        select ROW_NUMBER() OVER() as id, t.*, SUM(t.production) OVER(partition BY t.production_type order by t.month) as aggreg from (
+            select DATE_TRUNC('month', ap.time) as month, cast('Actual' as TEXT) as production_type,
+            sum(ap.net_salt_produced) as production 
+            from salt_production_washing ap
+            group by DATE_TRUNC('month', ap.time)
 
-        select DATE_TRUNC('month', ap.time) as month, cast('Actual' as TEXT) as production_type,
-        ap.crystalizer_id, ap.cycle, sum(ap.net_salt_produced) as production from salt_production_washing ap
-        group by DATE_TRUNC('month', ap.time), ap.crystalizer_id, ap.cycle
+            UNION ALL
 
-        UNION ALL
-
-        select DATE_TRUNC('month', pp.time) as month, cast('Projected' as TEXT) as production_type,
-        pp.crystalizer_id, pp.cycle, sum(pp.projected) as production from salt_production_projectedprod pp
-        group by DATE_TRUNC('month', pp.time), pp.crystalizer_id, pp.cycle
-        ) t
+            select DATE_TRUNC('month', pp.time) as month, cast('Projected' as TEXT) as production_type,
+            sum(pp.projected) as production from salt_production_projectedprod pp
+            group by DATE_TRUNC('month', pp.time)
+            ) t
         """
 
         tools.drop_view_if_exists(

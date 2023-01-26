@@ -125,6 +125,7 @@
 			<graph>
 				<field name="month" type="row" />
 				<field name="production" type="measure" />
+				<field name="aggreg" type="measure" />
 			</graph>
 		</field>
 	</record>

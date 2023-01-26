@@ -41,7 +41,7 @@
     <!-- FORM VIEW  -->
 
 
-    <record id="view_pump_post_form" model="ir.ui.view">
+    <record id="view_healthSafety_post_form" model="ir.ui.view">
         <field name="name">pump.form</field>
         <field name="model">salt_production.pump</field>
         <field name="arch" type="xml">
